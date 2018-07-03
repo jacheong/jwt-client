@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Contact=function(t){this._id=t&&t._id||"",this.name=t&&t.name||"",this.address=t&&t.address||"",this.phone=t&&t.phone||"",this.photoUrl=t&&t.photoUrl||""};exports.Contact=Contact;
