@@ -1,3 +1,16 @@
-<p>
-  login works!
-</p>
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div *ngFor="let question of questions" class="form-row">
+      <app-login-form-question [question]="question" [form]="form"></app-login-form-question>
+    </div>
+
+    <div class="from-row">
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+
+    <div class="form-row" *ngIf="payload">
+      <strong>Saved the following values</strong>
+      <br> {{payload}}
+    </div>
+  </form>
+</div>
