@@ -8,11 +8,11 @@
         </div>
 
         <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid">Save</button>
-
-        <div class="form-row" *ngIf="loginMessage">
-          <strong>{{loginMessage}}</strong>
-        </div>
       </form>
+
+      <div class="error-message" *ngIf="loginMessage">
+        <strong>{{loginMessage}}</strong>
+      </div>
     </div>
     <div class="loading-spinner" *ngIf="loading">
       <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>

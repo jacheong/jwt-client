@@ -45,9 +45,13 @@ export class LoginComponent implements OnInit {
         this.loading = false;
         this.router.navigate(['/contacts']);
       },
-      (error: any) => {
+      (err: any) => {
         this.loading = false;
-        this.loginMessage = error.error;
+        this.loginMessage = err.error.error;
+        setTimeout(() => {
+          this.loginMessage = null;
+        }, 2000);
+
       }
     );
   }

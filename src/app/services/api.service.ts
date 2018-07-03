@@ -18,9 +18,7 @@ export class ApiService {
     constructor(private http: HttpClient, private authService: AuthService) { }
 
     getContacts() {
-        return this.http.get<Contact[]>(`${environment.apiUrl}/contacts`).pipe(
-            catchError(this.handleError('getContacts', []))
-        );
+        return this.http.get<Contact[]>(`${environment.apiUrl}/contacts`, { headers: this.headers });
     }
 
     addContact(contact: Contact) {
@@ -42,9 +40,7 @@ export class ApiService {
     }
 
     login(user: User) {
-        return this.http.post<User>(`${environment.apiUrl}/authenticate`, user).pipe(
-            catchError(this.handleError('login', user))
-        );
+        return this.http.post<User>(`${environment.apiUrl}/authenticate`, user);
     }
 
     handleError<T>(operation = 'operation', result?: T) {

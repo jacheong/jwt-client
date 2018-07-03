@@ -14,10 +14,12 @@ import { ApiService } from './services/api.service';
 import { QuestionControlService } from './services/question-control.service';
 import { LoginQuestionsService } from './services/login-questions.service';
 import { LoginFormQuestionComponent } from './login/login-form-question/login-form-question.component';
+import { AuthGuard } from './services/auth.guard';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -34,12 +36,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     AppRoutingModule
   ],
   providers: [
     AuthService,
+    AuthGuard,
     ApiService,
     QuestionControlService,
     LoginQuestionsService

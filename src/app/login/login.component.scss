@@ -60,6 +60,13 @@
     justify-content: center;
 }
 
+.error-message {
+    margin-top: 1em;
+    font-family: roboto;
+    font-size: 1.5em;
+    color: red;
+}
+
 @media only screen and ( max-width: 1250px ) {
     .main-container {
         width: 100%;
@@ -121,6 +128,13 @@
     .loading-spinner {
         display: flex;
         justify-content: center;
+    }
+
+    .error-message {
+        margin-top: 1em;
+        font-family: roboto;
+        font-size: 1.5em;
+        color: red;
     }
 }
 
@@ -185,5 +199,12 @@
     .loading-spinner {
         display: flex;
         justify-content: center;
+    }
+
+    .error-message {
+        margin-top: 1em;
+        font-family: roboto;
+        font-size: 1.5em;
+        color: red;
     }
 }

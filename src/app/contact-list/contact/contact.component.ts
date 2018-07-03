@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Contact } from '../../models/contact.model';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  @Input() contact: Contact;
+
   constructor() { }
 
   ngOnInit() {
+    this.contact.photoUrl = `${environment.apiUrl}${this.contact.photoUrl}`;
   }
 
 }
