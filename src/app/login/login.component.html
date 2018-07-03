@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<div class="main-container">
+  <div class="login-container">
+    <div class="main-title">Contact Manager</div>
+    <div class="login-form">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div *ngFor="let question of questions">
+          <app-login-form-question [question]="question" [form]="form"></app-login-form-question>
+        </div>
+
+        <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid">Save</button>
+      </form>
+
+      <div class="error-message" *ngIf="loginMessage">
+        <strong>{{loginMessage}}</strong>
+      </div>
+    </div>
+    <div class="loading-spinner" *ngIf="loading">
+      <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </div>
+</div>

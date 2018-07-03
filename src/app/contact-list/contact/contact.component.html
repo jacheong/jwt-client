@@ -1,3 +1,14 @@
-<p>
-  contact works!
-</p>
+<mat-card class="contact-container">
+    <mat-card-header>
+        <i mat-card-avatar class="material-icons">account_circle</i>
+        <mat-card-title class="name">{{contact.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+        <div class="address">Address: {{contact.address}}</div>
+        <div class="phone">Phone Number: {{contact.phone}}</div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>Edit</button>
+        <button mat-button>Delete</button>
+    </mat-card-actions>
+</mat-card>
