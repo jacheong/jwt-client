@@ -1,16 +1,21 @@
-<div>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div *ngFor="let question of questions" class="form-row">
-      <app-login-form-question [question]="question" [form]="form"></app-login-form-question>
-    </div>
+<div class="main-container">
+  <div class="login-container">
+    <div class="main-title">Contact Manager</div>
+    <div class="login-form">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div *ngFor="let question of questions">
+          <app-login-form-question [question]="question" [form]="form"></app-login-form-question>
+        </div>
 
-    <div class="from-row">
-      <button type="submit" [disabled]="!form.valid">Save</button>
-    </div>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid">Save</button>
 
-    <div class="form-row" *ngIf="payload">
-      <strong>Saved the following values</strong>
-      <br> {{payload}}
+        <div class="form-row" *ngIf="loginMessage">
+          <strong>{{loginMessage}}</strong>
+        </div>
+      </form>
     </div>
-  </form>
+    <div class="loading-spinner" *ngIf="loading">
+      <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </div>
 </div>

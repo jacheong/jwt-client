@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,10 @@ import { ApiService } from './services/api.service';
 import { QuestionControlService } from './services/question-control.service';
 import { LoginQuestionsService } from './services/login-questions.service';
 import { LoginFormQuestionComponent } from './login/login-form-question/login-form-question.component';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -27,6 +32,10 @@ import { LoginFormQuestionComponent } from './login/login-form-question/login-fo
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule,
     AppRoutingModule
   ],
   providers: [
