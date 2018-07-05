@@ -7,14 +7,17 @@ import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, Validators } from '@angular/forms';
+import { FadeInOut } from '../animations/fadeInOut.animcation';
 
 @Component({
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
-  styleUrls: ['./contact-form.component.css']
+  styleUrls: ['./contact-form.component.css'],
+  animations: [FadeInOut]
 })
 export class ContactFormComponent implements OnInit {
 
+  showState = "show";
   pageTitle: string;
   questions: QuestionBase<any>[];
   payload: any;
@@ -41,11 +44,7 @@ export class ContactFormComponent implements OnInit {
     this.payload = this.form.value;
     this.apiService.addContact(new Contact(this.payload)).subscribe(
       (result: any) => {
-        console.log(result.message);
-        this.addMessage = result.message;
-        setTimeout(() => {
-          this.goToContacts();
-        }, 2000);
+        this.goToContacts();
       },
       (err: any) => {
         console.log(err);
@@ -66,4 +65,7 @@ export class ContactFormComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  onCancel() {
+    this.goToContacts();
+  }
 }

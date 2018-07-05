@@ -6,6 +6,7 @@ export class Contact {
     photoUrl: string;
 
     constructor(obj?: any) {
+        this._id = obj && obj._id;
         this.name = obj && obj.name || "";
         this.address = obj && obj.address || "";
         this.phone = obj && obj.phone || "";

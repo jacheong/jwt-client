@@ -27,6 +27,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { ContactFormQuestionComponent } from './contact-form/contact-form-question/contact-form-question.component';
+import { EditFormQuestionComponent } from './edit-form/edit-form-question/edit-form-question.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ContactFormQuestionComponent } from './contact-form/contact-form-questi
     MenuComponent,
     ContactFormComponent,
     EditFormComponent,
-    ContactFormQuestionComponent
+    ContactFormQuestionComponent,
+    EditFormQuestionComponent
   ],
   imports: [
     BrowserModule,

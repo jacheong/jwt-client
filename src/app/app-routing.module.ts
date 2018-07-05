@@ -8,11 +8,11 @@ import { EditFormComponent } from './edit-form/edit-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'contacts', component: ContactListComponent, },
+  { path: 'contacts', component: ContactListComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent, },
-  { path: 'contact-form', component: ContactFormComponent },
-  { path: 'edit-form/:id', component: EditFormComponent },
-  { path: '**', redirectTo: '/login' }
+  { path: 'contact-form', component: ContactFormComponent, canActivate: [AuthGuard] },
+  { path: 'edit-form/:id', component: EditFormComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '/contacts' }
 ];
 
 @NgModule({

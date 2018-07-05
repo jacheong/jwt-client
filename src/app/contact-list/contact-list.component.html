@@ -2,7 +2,7 @@
     <div class="menu-container">
         <app-menu [title]="pageTitle" (logOutClick)="logOff()" (addClick)="goToAddContact()"></app-menu>
     </div>
-    <div class="card-grid">
+    <div class="card-grid" [@listAnimation]="contacts.length">
         <div class="contact-container" *ngFor="let contact of contacts">
             <app-contact [contact]="contact" (editClick)="handleEdit( $event )" (deleteClick)="handleDelete($event)"></app-contact>
         </div>

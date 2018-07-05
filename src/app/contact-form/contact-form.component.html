@@ -4,7 +4,7 @@
 <div class="main-container">
   <div class="form-grid">
     <div class="form-container">
-      <div class="form-card">
+      <div class="form-card" [@fadeInOut]="showState">
         <div class="main-title">Create Contact</div>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div *ngFor="let question of questions">
@@ -12,6 +12,7 @@
           </div>
 
           <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid">Save</button>
+          <button mat-button type="submit" color="accent" (click)="onCancel()">Cancel</button>
         </form>
 
         <div class="error-message" *ngIf="addMessage">

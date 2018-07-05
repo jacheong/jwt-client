@@ -20,6 +20,14 @@ export class ApiService {
         return this.http.get<Contact[]>(`${environment.apiUrl}/contacts`, { headers: headers });
     }
 
+    getContact(id: string) {
+        let headers: HttpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.authService.getToken()}`
+        });
+        return this.http.get<Contact>(`${environment.apiUrl}/contacts/${id}`, { headers: headers });
+    }
+
     addContact(contact: Contact) {
         let headers: HttpHeaders = new HttpHeaders({
             'Content-Type': 'application/json',
@@ -33,7 +41,7 @@ export class ApiService {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${this.authService.getToken()}`
         });
-        return this.http.delete<Contact>(`${environment.apiUrl}/${contact._id}`, { headers: headers });
+        return this.http.delete<Contact>(`${environment.apiUrl}/contacts/${contact._id}`, { headers: headers });
     }
 
     updateContact(contact: Contact) {
@@ -41,7 +49,7 @@ export class ApiService {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${this.authService.getToken()}`
         });
-        return this.http.put<Contact>(`${environment.apiUrl}/${contact._id}`, contact, { headers: headers });
+        return this.http.put<Contact>(`${environment.apiUrl}/contacts/${contact._id}`, contact, { headers: headers });
     }
 
     login(user: User) {
