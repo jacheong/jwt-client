@@ -15,11 +15,18 @@ import { QuestionControlService } from './services/question-control.service';
 import { LoginQuestionsService } from './services/login-questions.service';
 import { LoginFormQuestionComponent } from './login/login-form-question/login-form-question.component';
 import { AuthGuard } from './services/auth.guard';
+import { ContactQuestionService } from './services/contact-questions.service';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MenuComponent } from './menu/menu.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
+import { ContactFormQuestionComponent } from './contact-form/contact-form-question/contact-form-question.component';
 
 
 @NgModule({
@@ -28,7 +35,11 @@ import { MatCardModule } from '@angular/material/card';
     ContactListComponent,
     ContactComponent,
     LoginComponent,
-    LoginFormQuestionComponent
+    LoginFormQuestionComponent,
+    MenuComponent,
+    ContactFormComponent,
+    EditFormComponent,
+    ContactFormQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +48,8 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     AppRoutingModule
@@ -46,6 +59,7 @@ import { MatCardModule } from '@angular/material/card';
     AuthGuard,
     ApiService,
     QuestionControlService,
+    ContactQuestionService,
     LoginQuestionsService
   ],
   bootstrap: [AppComponent]

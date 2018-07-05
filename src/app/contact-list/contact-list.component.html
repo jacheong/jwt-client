@@ -1,1 +1,10 @@
-<app-contact *ngFor="let contact of contacts" [contact]="contact"></app-contact>
+<div class="main-container">
+    <div class="menu-container">
+        <app-menu [title]="pageTitle" (logOutClick)="logOff()" (addClick)="goToAddContact()"></app-menu>
+    </div>
+    <div class="card-grid">
+        <div class="contact-container" *ngFor="let contact of contacts">
+            <app-contact [contact]="contact" (editClick)="handleEdit( $event )" (deleteClick)="handleDelete($event)"></app-contact>
+        </div>
+    </div>
+</div>

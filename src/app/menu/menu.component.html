@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="row-container">
+
+    <span>{{title}}</span>
+
+    <span class="spacer"></span>
+
+    <button type="button" (click)="handleContactsClick()" mat-icon-button>
+      <mat-icon>person</mat-icon>
+    </button>
+
+    <button type="button" (click)="handleAddClick()" mat-icon-button>
+      <mat-icon>person_add</mat-icon>
+    </button>
+
+    <button type="button" (click)="handleLogOutClick()" mat-icon-button>
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+
+  </mat-toolbar-row>
+</mat-toolbar>

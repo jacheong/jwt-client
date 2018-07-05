@@ -10,44 +10,42 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
 export class ApiService {
 
-    headers: HttpHeaders = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.authService.getToken()}`
-    });
-
     constructor(private http: HttpClient, private authService: AuthService) { }
 
     getContacts() {
-        return this.http.get<Contact[]>(`${environment.apiUrl}/contacts`, { headers: this.headers });
+        let headers: HttpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.authService.getToken()}`
+        });
+        return this.http.get<Contact[]>(`${environment.apiUrl}/contacts`, { headers: headers });
     }
 
     addContact(contact: Contact) {
-        this.http.post<Contact>(`${environment.apiUrl}/conntacts`, contact).pipe(
-            catchError(this.handleError('addContact', contact))
-        );
+        let headers: HttpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.authService.getToken()}`
+        });
+        return this.http.post<Contact>(`${environment.apiUrl}/contacts`, contact, { headers: headers });
     }
 
     removeContact(contact: Contact) {
-        this.http.delete<Contact>(`${environment.apiUrl}/${contact._id}`).pipe(
-            catchError(this.handleError('removeContact', contact))
-        );
+        let headers: HttpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.authService.getToken()}`
+        });
+        return this.http.delete<Contact>(`${environment.apiUrl}/${contact._id}`, { headers: headers });
     }
 
     updateContact(contact: Contact) {
-        this.http.put<Contact>(`${environment.apiUrl}/${contact._id}`, contact).pipe(
-            catchError(this.handleError('updateContact', contact))
-        );
+        let headers: HttpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.authService.getToken()}`
+        });
+        return this.http.put<Contact>(`${environment.apiUrl}/${contact._id}`, contact, { headers: headers });
     }
 
     login(user: User) {
         return this.http.post<User>(`${environment.apiUrl}/authenticate`, user);
-    }
-
-    handleError<T>(operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
-            console.log(error);
-            return of(result as T);
-        }
     }
 
 }

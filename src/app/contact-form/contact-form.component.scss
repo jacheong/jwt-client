@@ -1,0 +1,214 @@
+.menu-container {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    box-shadow: 0 5px 3px 0 rgba( 0, 0, 0, 0.25 );
+}
+
+.main-container {
+    width: 100%;
+    min-height: 100vh;
+    background: url( '/assets/images/add-form.jpg' );
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr );
+    grid-auto-rows: minmax( 200px, auto );
+    grid-template-areas:
+    ". ." 
+    "f ."
+    "f ."
+    "f .";
+    justify-items: end;
+}
+
+.form-container {
+    grid-area: f;
+    display: flex;
+    justify-content: center;
+}
+
+.form-card {
+    width: 600px;
+    height: 400px;
+    padding: 2.5em;
+    background: white;
+    box-shadow: 5px 10px 10px 0px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 800px;
+        height: 600px;
+        background: rgba( 0, 0, 0, 0.4 );
+        top: -12.5%;
+        left: -8.3%;
+        z-index: -2;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: white;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+}
+
+.main-title {
+    font-family: 'Galada', cursive;
+    font-size: 4em;
+    text-align: center;
+    position: relative;
+    
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 1em;
+        width: 1em;
+        border: solid black 2px;
+        left: 48%;
+        top: 100%;
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 1em;
+        width: 1em;
+        border: solid black 2px;
+        right: 48%;
+        top: 100%;
+        transform: rotate(45deg);
+    }
+}
+
+@media only screen and ( max-width: 682px ) {
+    .menu-container {
+        margin: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        box-shadow: 0 5px 3px 0 rgba( 0, 0, 0, 0.25 );
+    }
+    
+    .main-container {
+        width: 100%;
+        min-height: 100vh;
+        background: url( '/assets/images/add-form.jpg' );
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        overflow-x: auto;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax( 200px, auto );
+        grid-template-areas:
+        "." 
+        "f"
+        "f"
+        "f";
+        justify-items: end;
+    }
+    
+    .form-container {
+        grid-area: f;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .form-card {
+        width: 600px;
+        height: 400px;
+        padding: 2.5em;
+        background: white;
+        box-shadow: 5px 10px 10px 0px rgba(0,0,0,0.3);
+        position: relative;
+        z-index: 99;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    
+        &::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 600px;
+            background: rgba( 0, 0, 0, 0.4 );
+            top: -12.5%;
+            left: -8.3%;
+            z-index: -2;
+        }
+    
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    
+    }
+    
+    .main-title {
+        font-family: 'Galada', cursive;
+        font-size: 4em;
+        text-align: center;
+        position: relative;
+        
+    
+        &::before {
+            content: '';
+            position: absolute;
+            height: 1em;
+            width: 1em;
+            border: solid black 2px;
+            left: 48%;
+            top: 100%;
+            transform: rotate(45deg);
+        }
+    
+        &::after {
+            content: '';
+            position: absolute;
+            height: 1em;
+            width: 1em;
+            border: solid black 2px;
+            right: 48%;
+            top: 100%;
+            transform: rotate(45deg);
+        }
+    }
+}

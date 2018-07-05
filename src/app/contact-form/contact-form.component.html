@@ -1,0 +1,23 @@
+<div class="menu-container">
+  <app-menu [title]="pageTitle" (logOutClick)="logOff()" (addClick)="goToAddContact()" (contactsClick)="goToContacts()"></app-menu>
+</div>
+<div class="main-container">
+  <div class="form-grid">
+    <div class="form-container">
+      <div class="form-card">
+        <div class="main-title">Create Contact</div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div *ngFor="let question of questions">
+            <app-contact-form-question [question]="question" [form]="form"></app-contact-form-question>
+          </div>
+
+          <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid">Save</button>
+        </form>
+
+        <div class="error-message" *ngIf="addMessage">
+          <strong>{{addMessage}}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
